@@ -30,7 +30,6 @@ import ghidra.framework.model.DomainObject;
 import ghidra.program.model.address.Address;
 import ghidra.program.model.address.AddressOverflowException;
 import ghidra.program.model.data.DataType;
-import ghidra.program.model.data.DataTypeConflictException;
 import ghidra.program.model.data.DataUtilities;
 import ghidra.program.model.data.DataUtilities.ClearDataMode;
 import ghidra.program.model.lang.LanguageCompilerSpecPair;
@@ -144,9 +143,6 @@ public class GhidraESP8266_2Loader extends AbstractLibrarySupportLoader {
 		}
 		catch (CodeUnitInsertionException e) {
 			Msg.warn(this, "Data markup conflict at " + address);
-		}
-		catch (DataTypeConflictException e) {
-			Msg.error(this, "Data type markup conflict:" + e.getMessage());
 		}
 		return null;
 	}
